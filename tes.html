@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-language Website</title>
+  </head>
+  <body>
+    <select id="languageSwitcher">
+      <option value="en">English</option>
+      <option value="id">Bahasa Indonesia</option>
+    </select>
+
+    <h1 id="welcome"></h1>
+    <p id="description"></p>
+
+    <script src="https://unpkg.com/i18next@20.6.1/i18next.min.js"></script>
+    <script>
+      i18next.init(
+        {
+          lng: "en", // Bahasa default
+          resources: {
+            en: {
+              translation: {
+                welcome: "Welcome to our website!",
+                description: "This is a simple multilingual page example.",
+              },
+            },
+            id: {
+              translation: {
+                welcome: "Selamat datang di situs kami!",
+                description:
+                  "Ini adalah contoh halaman asdasdasdasda sederhana.",
+              },
+            },
+          },
+        },
+        function (err, t) {
+          // Inisialisasi konten setelah i18next selesai
+          updateContent();
+        }
+      );
+
+      function updateContent() {
+        document.getElementById("welcome").innerHTML = i18next.t("welcome");
+        document.getElementById("description").innerHTML =
+          i18next.t("description");
+      }
+
+      // Event listener untuk perubahan bahasa
+      document
+        .getElementById("languageSwitcher")
+        .addEventListener("change", function () {
+          i18next.changeLanguage(this.value, function (err, t) {
+            updateContent();
+          });
+        });
+    </script>
+  </body>
+</html>
