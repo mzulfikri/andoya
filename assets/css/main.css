@@ -1309,7 +1309,7 @@ section,
   border-radius: 5px;
   transition: 0.5s;
   padding: 30px;
-  height: 100%;
+  height: 80;
   display: flex;
   align-items: center;
 }
@@ -1324,8 +1324,9 @@ section,
 
 .profile .profile-member .pic {
   overflow: hidden;
-  width: 150px;
-  border-radius: 50%;
+  width: 170px;
+  height: 190px;
+  border-radius: 70%;
   flex-shrink: 0;
 }
 
